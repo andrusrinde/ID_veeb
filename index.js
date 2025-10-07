@@ -45,15 +45,29 @@ app.post("/regvisit", (req, res)=>{
 		}
 		else {
 			//faili senisele sisule lisamine
-			fs.appendFile("public/txt/visitlog.txt", req.body.nameInput + ";", (err)=>{
+			fs.appendFile("public/txt/visitlog.txt", req.body.firstNameInput + " " + req.body.lastNameInput + ", " + dateEt.longDate() + " kell " + dateEt.time() + ";", (err)=>{
 				if(err){
 					throw(err);
 				}
 				else {
 					console.log("Salvestatud!");
-					res.render("regvisit");
+					res.render("visitregistered", {visitor: req.body.firstNameInput + " " + req.body.lastNameInput});
 				}
 			});
+		}
+	});
+});
+
+app.get("/visitlog", (req, res)=>{
+	let listData = [];
+	fs.readFile("public/txt/visitlog.txt", "utf8", (err, data)=>{
+		if(err){
+			//kui tuleb viga, siis ikka väljastame veebilehe, liuhtsalt vanasõnu pole ühtegi
+			res.render("genericlist", {heading: "Registreeritud külastused", listData: ["Ei leidnud ühtegi külastust!"]});
+		}
+		else {
+			listData = data.split(";");
+			res.render("genericlist", {heading: "registreeritud külastused", listData: listData});
 		}
 	});
 });

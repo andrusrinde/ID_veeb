@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <title>Andrus Rinde, veebiprogrammeerimine</title>
+</head>
+<body>
+  <img src="/images/vp_banner_2025_ID.jpg" alt="kursuse bänner">
+  <h1>Andrus Rinde, veebiprogrammeerimine</h1>
+  <p>See leht on tehtud <a href="https://www.tlu.ee/dt">Tallinna Ülikooli</a> veebiprogrammeerimise kursusel ja ei sisalda mõistlikku sisu.</p>
+  <hr>
+  <ul>
+	<li><a href="/">Avalehele</a></li>
+	<li><a href="/eestifilm">Eesti filmi avalehele</a></li>
+  </ul>
+  <h2>Eesti filmidega seotud inimeste lisamine</h2>
+  <form method="POST">
+    <label for="firstNameInput">Filmitegelase eesnimi</label>
+	<input id="firstNameInput" name="firstNameInput" type="text" placeholder="Eesnimi ..." required>
+	<br>
+	<label for="lastNameInput">Filmitegelase perekonnanimi</label>
+	<input id="lastNameInput" name="lastNameInput" type="text" placeholder="Perekonnanimi ..." required>
+	<br>
+	<label for="bornInput">Sünniaeg</label>
+	<input id="bornInput" name="bornInput" type="date" required>
+	<br>
+	<label for="deceasedInput">Surmaaeg</label>
+	<input id="deceasedInput" name="deceasedInput" type="date">
+	<br>
+	<input id="personSubmit" name="personSubmit" type="submit" value="Salvesta">
+  </form>
+  <p><%= notice %></p>
+</body>
+</html>

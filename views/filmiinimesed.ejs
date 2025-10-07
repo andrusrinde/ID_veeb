@@ -11,9 +11,12 @@
   <hr>
   <ul>
 	<li><a href="/">Avalehele</a></li>
-    <li><a href="/regvisit">Registreeri veel üks külastus</a></li>
+	<li><a href="/eestifilm">Eesti filmi avalehele</a></li>
   </ul>
-  <hr>
-  <p><%= visitor %> külastus edukalt salvestatud</p>
+  <h2>Eesti filmidega seotud inimesed</h2>
+  <ul><% personList.forEach(function(listItem){ %>
+	<li><%= listItem.first_name %> <%= listItem.last_name %>, sündinud <%= listItem.born %></li>
+	<% }); %>
+  </ul>
 </body>
 </html>

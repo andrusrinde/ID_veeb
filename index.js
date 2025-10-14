@@ -132,7 +132,50 @@ app.post("/eestifilm/inimesed_add", (req, res)=>{
 			}
 		});
 	}
-	//res.render("filmiinimesed_add", {notice: "Andmed olemas! " + req.body});
+});
+
+
+app.get("/eestifilm/ametid", (req, res)=>{
+	const sqlReq = "SELECT * FROM position";
+	conn.execute(sqlReq, (err, sqlRes)=>{
+		if(err){
+			console.log(err);
+			res.render("filmiametid", {positionList: []});
+		}
+		else {
+			console.log(sqlRes);
+			res.render("filmiametid", {positionList: sqlRes});
+		}
+		
+	});
+});
+
+app.get("/eestifilm/ametid_add", (req, res)=>{
+	res.render("filmiametid_add", {notice: "Ootan sisestust!"});
+});
+
+app.post("/eestifilm/ametid_add", (req, res)=>{
+	console.log(req.body);
+	//kas andmed on olemas?
+	if(!req.body.positionNameInput){
+		res.render("filmiametid_add", {notice: "Palun kirjuta ameti nimetus!"});
+	}
+	else {
+		let positionDescription = null;
+		if(req.body.positionDescriptionInput != ""){
+			positionDescription = req.body.positionDescriptionInput;
+		}
+		let sqlReq = "INSERT INTO `position` (position_name, description) VALUES (?,?)";
+		conn.execute(sqlReq, [req.body.positionNameInput, positionDescription], (err, sqlRes)=>{
+			if(err){
+				res.render("filmiametid_add", {notice: "Tekkis tehniline viga:" + err});
+			}
+			else {
+				//res.render("filmiametid_add", {notice: "Andmed on salvestatud!"});
+				res.redirect("/eestifilm/ametid");
+			}
+		});
+	}
 });
 
 app.listen(5200);

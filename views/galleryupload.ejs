@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <title>Andrus Rinde, veebiprogrammeerimine</title>
+</head>
+<body>
+  <img src="/images/vp_banner_2025_ID.jpg" alt="kursuse bänner">
+  <h1>Andrus Rinde, veebiprogrammeerimine</h1>
+  <p>See leht on tehtud <a href="https://www.tlu.ee/dt">Tallinna Ülikooli</a> veebiprogrammeerimise kursusel ja ei sisalda mõistlikku sisu.</p>
+  <hr>
+  <ul>
+	<li><a href="/">Avalehele</a></li>
+  </ul>
+  <h2>Lae galeriisse fotosid</h2>
+  <form method="POST" enctype="multipart/form-data">
+	<label for="photoInput">Vali pildifail</label>
+    <input id="photoInput" name="photoInput" type="file">
+	<br>
+    <label for="altInput">Pildi alternatiivtekst</label>
+    <input id="altInput" name="altInput" width="200" type="text" placeholder="Sellel pildil on ...">
+    <br>
+    <label>Vali privaatsustase</label>
+	<br>
+    <input id="privacyInput1" name="privacyInput" type="radio" value="1" checked>
+    <label for="privacyInput1">Privaatne</label>
+    <br>
+    <input id="privacyInput2" name="privacyInput" type="radio" value="2">
+    <label for="privacyInput2">Sisseloginud kasutajatele</label>
+    <br>
+	<input id="privacyInput3" name="privacyInput" type="radio" value="3">
+    <label for="privacyInput3">Avalik</label>
+    <br>
+	<input type="submit" id="photoSubmit" name="photoSubmit" value="Lae üles">
+  </form>
+</body>
+</html>

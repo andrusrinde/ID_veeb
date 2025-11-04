@@ -8,7 +8,8 @@ const dateEt = require("./src/dateTimeET");
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use(bodyparser.urlencoded({extended: false}));
+//kui vormist tuleb ainult text, siis false, muidui true
+app.use(bodyparser.urlencoded({extended: true}));
 
 /* const conn = mysql.createConnection({
 	host: dbInfo.configData.host,
@@ -87,5 +88,9 @@ app.get("/visitlog", (req, res)=>{
 //Eesti filmi marsruudid
 const eestifilmRouter = require("./routes/eestifilmRoutes");
 app.use("/eestifilm", eestifilmRouter);
+
+//Galeriipiltide üleslaadimise marsruudid
+const galleryphotoupRouter = require("./routes/galleryphotoupRoutes");
+app.use("/galleryphotoupload", galleryphotoupRouter);
 
 app.listen(5200);

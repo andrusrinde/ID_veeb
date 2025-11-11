@@ -109,4 +109,8 @@ app.use("/eestifilm", eestifilmRouter);
 const galleryphotoupRouter = require("./routes/galleryphotoupRoutes");
 app.use("/galleryphotoupload", galleryphotoupRouter);
 
+//Galerii marsruudid
+const photogalleryRouter = require("./routes/photogalleryRoutes");
+app.use("/photogallery", photogalleryRouter);
+
 app.listen(5200);

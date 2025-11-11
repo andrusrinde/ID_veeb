@@ -50,7 +50,9 @@ const galleryphotoupPagePost = async (req, res)=>{
 	  if (watermarkSettings.length > 0) {
 		normalImageProcessor = await normalImageProcessor.composite(watermarkSettings);
 	  }
-	  await normalImageProcessor.toFile("./public/gallery/normal/" + fileName);await sharp(req.file.destination + fileName).resize(100,100).jpeg({quality: 90}).toFile("./public/gallery/thumbs/" + fileName);
+	  await normalImageProcessor.toFile("./public/gallery/normal/" + fileName);
+	  //Pisipildi tegemine
+	  await sharp(req.file.destination + fileName).resize(100,100).jpeg({quality: 90}).toFile("./public/gallery/thumbs/" + fileName);
 	  let sqlReq = "INSERT INTO galleryphotos_id (filename, origname, alttext, privacy, userid) VALUES(?,?,?,?,?)";
 	  //kuna kasutajakontosid veel pole, siis kasuutaja 1
 	  const userId = 1;

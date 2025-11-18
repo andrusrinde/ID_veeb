@@ -4,8 +4,11 @@ const router = express.Router();
 
 //kontrollerid
 const {
-	photogalleryHome} = require("../controllers/photogalleryControllers");
+	photogalleryHome,
+	photogalleryPage} = require("../controllers/photogalleryControllers");
 
 router.route("/").get(photogalleryHome);
+
+router.route("/:page").get(photogalleryPage);
 	
 module.exports = router;

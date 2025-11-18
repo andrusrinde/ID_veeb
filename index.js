@@ -113,4 +113,12 @@ app.use("/galleryphotoupload", galleryphotoupRouter);
 const photogalleryRouter = require("./routes/photogalleryRoutes");
 app.use("/photogallery", photogalleryRouter);
 
+//Uudiste osa eraldi marsruutide failiga
+//const newsRouter = require("./routes/newsRoutes");
+//app.use("/news", newsRouter);
+
+//konto loomise marsruudid
+const signupRouter = require("./routes/signupRoutes");
+app.use("/signup", signupRouter);
+
 app.listen(5200);

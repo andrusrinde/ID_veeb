@@ -50,6 +50,14 @@ const addNewsPagePost = async (req, res)=>{
 	
 };
 
+//@desc page news list
+//@route GET /news/read
+//@access public
+
+const newsListPage = (req, res)=>{
+	res.render("newslist");
+};
+
 
 module.exports = {
 	newsHome,

@@ -55,7 +55,7 @@ const galleryphotoupPagePost = async (req, res)=>{
 	  await sharp(req.file.destination + fileName).resize(100,100).jpeg({quality: 90}).toFile("./public/gallery/thumbs/" + fileName);
 	  let sqlReq = "INSERT INTO galleryphotos_id (filename, origname, alttext, privacy, userid) VALUES(?,?,?,?,?)";
 	  //kuna kasutajakontosid veel pole, siis kasuutaja 1
-	  const userId = 1;
+	  const userId = req.session.userId;
 	  conn = await mysql.createConnection(dbConf);
 	  const [result] = await conn.execute(sqlReq, [fileName, req.file.originalname, req.body.altInput, req.body.privacyInput, userId]);
 	  console.log("Salvestati foto id: " + result.insertId);
